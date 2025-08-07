@@ -39,6 +39,8 @@ products.forEach((product) => {
             </select>
           </div>
 
+          <div class="product-spacer"></div>
+          
           <div class="added-to-cart js-added-to-cart-${product.id}">
             <img src="images/icons/checkmark.png">
             Added
@@ -54,7 +56,6 @@ products.forEach((product) => {
 
 document.querySelector('.js-products-grid')
     .innerHTML = productsHTML;
-
 
 // We're going to use an object to save the timeout ids.
 // The reason we use an object is because each product
@@ -75,8 +76,8 @@ document.querySelectorAll('.js-add-to-cart')
     .forEach((button) => {
         button.addEventListener('click', () => {
 
-            // const productId = button.dataset.productId;
-            const {productId} = button.dataset;
+            // const {productId} = button.dataset;
+            const productId = button.dataset.productId;
 
             let matchingItem;
 
@@ -97,8 +98,8 @@ document.querySelectorAll('.js-add-to-cart')
             }
             else{
                 cart.push({
-                    productId,
-                    quantity
+                    productId : productId,
+                    quantity : quantity
                 });
             }
 
@@ -121,13 +122,13 @@ document.querySelectorAll('.js-add-to-cart')
              // Check if there's a previous timeout for this
              // product. If there is, we should stop it.
             const previousTimeoutId = addedMessageTimeouts[productId];
-                    if (previousTimeoutId) {
-                        clearTimeout(previousTimeoutId);
+                if (previousTimeoutId) {
+                    clearTimeout(previousTimeoutId);
             }
 
             const timeoutId = setTimeout(() => {
                 addedMessage.classList.remove('added-to-cart-visible');
-            }, 10000);
+            }, 1000);
 
             // Save the timeoutId for this product
             // so we can stop it later if we need to.
