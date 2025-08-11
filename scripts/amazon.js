@@ -135,4 +135,3 @@ document.querySelectorAll('.js-add-to-cart')
             addedMessageTimeouts[productId] = timeoutId;
                 });
     });
-
