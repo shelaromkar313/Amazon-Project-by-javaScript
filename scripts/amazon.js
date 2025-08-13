@@ -1,3 +1,5 @@
+import {cart} from '../data/cart.js';
+
 let productsHTML = '';
 
 products.forEach((product) => {
@@ -18,7 +20,7 @@ products.forEach((product) => {
             <div class="product-rating-count link-primary">
               ${product.rating.count}
             </div>
-          </div>
+          </div> 
 
           <div class="product-price">
             $${(product.priceCents / 100).toFixed(2)}
