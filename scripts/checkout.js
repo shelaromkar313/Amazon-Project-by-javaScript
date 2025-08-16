@@ -4,7 +4,7 @@ import {formatCurrency} from './utils/money.js';
 
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
-import {deliveryOptions} from '../data/delieveryOptions.js'
+import {deliveryOptions} from '../data/deliveryOptions.js'
 
 const today = dayjs();
 const deliveryDate = today.add(7,'days');
@@ -85,7 +85,7 @@ function deliveryOptionsHTML (matchingProduct, cartItem){
     const dateString = deliveryDate.format('dddd, MMMM D');
 
     const priceCents =  deliveryOption.priceCents === 0 ? 'Free' :
-    `$${formatCurrency(deliveryOption.priceCents)} -`;
+    `${formatCurrency(deliveryOption.priceCents)} -`;
 
     const isChecked = deliveryOption.id === 
     cartItem.deliveryOptionId;
