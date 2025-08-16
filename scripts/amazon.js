@@ -76,7 +76,10 @@ document.querySelector('.js-products-grid')
 const addedMessageTimeouts = {};
 
 function updateCartQuantity(){
-  calculateCartQuantity();
+  const quantity = calculateCartQuantity();
+
+  document.querySelector('.js-cart-quantity')
+    .innerHTML = `${quantity}`;
 }
 
 updateCartQuantity();
