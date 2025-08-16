@@ -1,6 +1,6 @@
-import {cart, addToCart} from '../data/cart.js';
+import {cart, addToCart, calculateCartQuantity} from '../data/cart.js';
 import {products} from '../data/products.js';
-import { formatCurrency } from './utils/money.js';
+import {formatCurrency} from './utils/money.js';
 
 let productsHTML = '';
 
@@ -15,7 +15,7 @@ products.forEach((product) => {
       <div class="product-name limit-text-to-2-lines">
         ${product.name}
       </div>
-ama
+
       <div class="product-rating-container">
         <img class="product-rating-stars"
           src="images/ratings/rating-${product.rating.stars * 10}.png">
@@ -76,15 +76,10 @@ document.querySelector('.js-products-grid')
 const addedMessageTimeouts = {};
 
 function updateCartQuantity(){
-  let cartQuantity = 0;
-
-  cart.forEach((item) => {
-      cartQuantity += item.quantity;
-  });
-
-  document.querySelector('.js-cart-quantity')
-      .innerHTML = cartQuantity;
+  calculateCartQuantity();
 }
+
+updateCartQuantity();
 
 document.querySelectorAll('.js-add-to-cart')
   .forEach((button) => {
