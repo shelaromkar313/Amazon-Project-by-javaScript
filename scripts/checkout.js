@@ -4,7 +4,7 @@ import {formatCurrency} from './utils/money.js';
 
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
-import {deliveryOptions} from '../data/deliveryOptions.js'
+import {deliveryOptions} from '../data/deliveryOptions.js';
 
 const today = dayjs();
 const deliveryDate = today.add(7,'days');
@@ -75,7 +75,7 @@ cart.forEach((cartItem) => {
     `;
 });
 
-function deliveryOptionsHTML (matchingProduct, cartItem){
+function deliveryOptionsHTML(matchingProduct, cartItem){
 
   let html = '';
 
@@ -85,7 +85,7 @@ function deliveryOptionsHTML (matchingProduct, cartItem){
     const dateString = deliveryDate.format('dddd, MMMM D');
 
     const priceCents =  deliveryOption.priceCents === 0 ? 'Free' :
-    `${formatCurrency(deliveryOption.priceCents)} -`;
+    `${formatCurrency(deliveryOption.priceCents)}`;
 
     const isChecked = deliveryOption.id === 
     cartItem.deliveryOptionId;
@@ -94,9 +94,10 @@ function deliveryOptionsHTML (matchingProduct, cartItem){
     `
       <div class="delivery-option">
         <input type="radio"
-          ${isChecked ? 'checked' : ''}
           class="delivery-option-input"
-          name="delivery-option-${matchingProduct.id}">
+          name="delivery-option-${matchingProduct.id}"
+          value="${deliveryOption.id}"
+          ${isChecked ? 'checked' : ''}>
         <div>
           <div class="delivery-option-date">
             ${dateString}
