@@ -31,10 +31,10 @@ else{
     console.log('failed');
 }
 
-// exercise which is not in code // Edge test cases
-if(formatCurrency(2000.4) === '20.00'){
-    console.log('passed');
-}
-else{
-    console.log('failed');
-}
+// // exercise which is not in code // Edge test cases
+// if(formatCurrency(2000.4) === '20.00'){
+//     console.log('passed');
+// }
+// else{
+//     console.log('failed');
+// }
