@@ -2,7 +2,7 @@ import {cart, removeFromCart, calculateCartQuantity, updateQuantity, updateDeliv
 import {products} from '../data/products.js';
 import {formatCurrency} from './utils/money.js';
 
-import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
+import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 
 import {deliveryOptions} from  '../data/deliveryOptions.js';
 
@@ -30,7 +30,7 @@ cart.forEach((cartItem) => {
   });
 
   const today = dayjs();
-  const deliveryDate = today.add(deliveryOption.deliveryDays , 'days');
+  const deliveryDate = today.add(deliveryOption.deliveryDays,'days');
   const dateString = deliveryDate.format('dddd, MMMM D');
 
   cartSummaryHTML +=
@@ -107,7 +107,7 @@ function deliveryOptionsHTML(matchingProduct, cartItem){
         data-product-id="${matchingProduct.id}"
         data-delivery-option-id="${deliveryOption.id}">
         <input type="radio"
-          ${isChecked ? 'Checked' : ''}
+          ${isChecked ? 'checked' : ''}
           class="delivery-option-input"
           name="delivery-option-${matchingProduct.id}"
         >
