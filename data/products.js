@@ -99,6 +99,17 @@ const tShirt = new Clothing({
   console.log(tShirt.getPrice());
 
 
+// const date = new Date();
+// console.log(date);
+// console.log(date.toLocaleTimeString());
+
+// console.log(this);
+
+// const obj = {
+//   a : 2,
+//   b : this.a  // This is not allowed
+// }
+
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
