@@ -126,7 +126,7 @@ export function loadProductsFetch() {
     });
     
     console.log('load products');
-  });
+  }); 
 
   return promise;
 }
